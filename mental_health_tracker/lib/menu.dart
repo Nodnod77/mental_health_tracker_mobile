@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:mental_health_tracker/widgets/left_drawer.dart';
+import 'package:mental_health_tracker/moodentry_form.dart';
 
 class MyHomePage extends StatelessWidget {
-   final String npm = 'XX'; // NPM
+   final String npm = '2406394906 '; // NPM
     final String name = 'Donia Sakji'; // Name
     final String className = 'PBP '; // Class
     MyHomePage({super.key});
@@ -25,7 +26,9 @@ class MyHomePage extends StatelessWidget {
         ),
         // The background color of the AppBar is obtained from the application theme color scheme.
         backgroundColor: Theme.of(context).colorScheme.primary,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
+       drawer: const LeftDrawer(),
       // Body of the page with paddings around it.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -136,12 +139,19 @@ class ItemCard extends StatelessWidget {
       child: InkWell(
         // Action when the card is pressed.
         onTap: () {
-          // Display the SnackBar message when the card is pressed.
+          // Show SnackBar when clicked
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text("You have pressed the ${item.name} button!"))
-            );
+            ..showSnackBar(SnackBar(
+                content: Text("You pressed the ${item.name} button!")));
+
+          // Navigate to the appropriate route (depending on the button type)
+          if (item.name == "Add Mood") {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MoodEntryFormPage()),
+              );
+          }
         },
         // Container to store the Icon and Text
         child: Container(
