@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mental_health_tracker/menu.dart';
-import 'package:mental_health_tracker/widgets/left_drawer.dart';
+import 'package:mental_health_tracker/screens/menu.dart';
+
 
 void main() {
   runApp(const MyApp());

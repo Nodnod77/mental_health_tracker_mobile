@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mental_health_tracker/widgets/left_drawer.dart';
 
 class MoodEntryFormPage extends StatefulWidget {
   const MoodEntryFormPage({super.key});
